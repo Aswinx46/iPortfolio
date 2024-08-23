@@ -463,6 +463,7 @@
   const form=document.getElementById(
     "submit-form");
   form.addEventListener("submit",(e) => {
+    form.classList.add("was-validated");
     if(!form.checkValidity()){
       e.preventDefault();
     }else{
@@ -473,10 +474,10 @@
     }
     console.log(params)
     emailjs.send('service_7wox838','template_mf02dte', params).then((res)=>{alert(res)})
-    
+    form.classList.remove("was-validated");
+    form.reset()    
     }
-    console.log("here")
-    form.classList.add("was-validated");
+  
   });
 </script>
 
